@@ -9,12 +9,10 @@ node {
         
         print config_yaml.notifications
     }
-    stages {
-        stage('Ok') {
+    stage('Ok') {
             steps {
                 echo "Ok"
             }
-        }
     }
     post {
         always {
