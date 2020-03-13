@@ -6,5 +6,6 @@ node {
        
 
         def config_yaml = readYaml file: './config.yml'
+        echo config_yaml.testFolder
     }
 }
