@@ -9,14 +9,26 @@ node {
         
         print config_yaml.notifications
     }
-    stage('Ok') {
-            steps {
-                echo "Ok"
-            }
+pipeline {
+  agent any
+  stages {
+    stage(‘Error’) {
+      steps {
+        error “failure test. It’s work”
+      }
     }
-    post {
-        always {
-            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
-        }
+    stage(‘ItNotWork’) {
+      steps {
+        echo “is not pass here”
+      }
+   }
+  }
+  post {
+    success {
+      mail to: team@example.com, subject: ‘The Pipeline success :(‘
     }
+  }
+}
+
+
 }
