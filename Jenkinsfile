@@ -1,8 +1,5 @@
-@Library('wolox-ci') _
-
 node {
-
-  checkout scm
-
-  woloxCi('./config_test.yml');
+    stage('Clone sources') {
+        git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
+    }
 }
