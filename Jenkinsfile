@@ -6,7 +6,6 @@ node {
        
 
         def config_yaml = readYaml file: './config.yml'
-        print "ABC"
-        print config_yaml.testFolder
+        print config_yaml.test.testFolder
     }
 }
