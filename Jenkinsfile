@@ -7,6 +7,6 @@ node {
 
         def config_yaml = readYaml file: './config.yml'
         
-        print config_yaml.test
+        print config_yaml.notifications
     }
 }
