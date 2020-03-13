@@ -5,6 +5,6 @@ node {
     stage('Read config') {
        
 
-        def config_yaml = readYaml file: './test-maven-project/config.yml'
+        def config_yaml = readYaml file: './config.yml'
     }
 }
