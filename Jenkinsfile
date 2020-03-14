@@ -6,9 +6,15 @@ def loadValuesYaml(){
 }
 
 def makeTest(mapa){
-    mapa.each{
-        println it
-    }
+    println mapa.testFolder
+    println mapa.name
+    println mapa.testCommand
+
+    // mapa.each{
+    //     if it.getKey()="testFolder"
+    //     println it
+    // }
+
 }
 
 pipeline {
