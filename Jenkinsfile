@@ -62,13 +62,15 @@ pipeline {
             steps {
                 script{
                     valuesYaml.test.each{
-                        parallel{
-                            "${it.name}":{println it.test.testCommand}
+                        def taskName = "${it.name}"
+                        def task = {println it.test.testCommand}
+                        parallel{"${taskName}", task}
+                            
                                 // println it.test.testCommand
                                 //  dir (it.testFolder){
                                 //     sh "${it.test.testCommand}"
                                 // }
-                            }
+                            
                         }                                               
                     }
                 }                
