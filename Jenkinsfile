@@ -71,9 +71,9 @@ pipeline {
                       
                     valuesYaml.test.each{
                         
-                        def taskName = transformIntoStep(it.name)
+                        // def taskName = transformIntoStep(it.name)
                         def task = "${it.testCommand}"
-                        parallel{ stage("${taskName}"){ task } }
+                        parallel{ stage(transformIntoStep(it.name)){ task } }
                             
                                 // println it.test.testCommand
                                 //  dir (it.testFolder){
