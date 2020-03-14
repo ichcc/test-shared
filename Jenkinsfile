@@ -23,7 +23,7 @@ pipeline {
         stage('Build'){
             steps{
                 script{
-                    System.out.println(valuesYaml)
+                    println(valuesYaml)
                     // valuesYaml = loadValuesYaml()
                     // valuesYaml.build.each{
                         // println valuesYaml.build.projectFolder
