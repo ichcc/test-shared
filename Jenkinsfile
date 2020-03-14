@@ -12,7 +12,7 @@ node {
 
         def jobName = currentBuild.fullDisplayName
 
-        notifyEmail()
+        notifySuccessful()
 
     }
       
@@ -30,7 +30,7 @@ def notifyEmail() {
 def notifyStarted() {
   // send to email
   emailext (
-    //   to: "${mailRecipients}",
+      to: "${env.mailRecipients}",
       subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
       body: """
 STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
