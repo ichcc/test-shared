@@ -15,8 +15,9 @@ pipeline {
                     valuesYaml = loadValuesYaml()
                 }                                
             }
-        stage ('Build'){}
         }
-                
+        stage ('Build'){
+            
+        }        
     }
 }
