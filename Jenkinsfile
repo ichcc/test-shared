@@ -17,7 +17,7 @@ node {
 def notifyStarted() {
   // send to email
   emailext (
-      to: ${mailRecipients}
+      to: ${mailRecipients},
       subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
       body: """
 STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
