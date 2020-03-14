@@ -62,7 +62,7 @@ pipeline {
             steps {
                 script{
                     valuesYaml.test.each{
-                        def taskName = "${it.name}"
+                        def taskName = "stage-${it.name}"
                         def task = "${it.testCommand}"
                         parallel{ stage("${taskName}"){ task } }
                             
