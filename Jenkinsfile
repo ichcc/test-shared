@@ -22,9 +22,9 @@ node {
 def notifyEmail() {
         emailext body: '''${SCRIPT, template="groovy-html.template"}''',
         mimeType: 'text/html',
-        subject: "[Jenkins] ${env.jobName}",
+        subject: "[Jenkins] ${jobName}",
         to: "${mailRecipients}",
-        replyTo: "${env.mailRecipients}",
+        replyTo: "${mailRecipients}",
         recipientProviders: [[$class: 'CulpritsRecipientProvider']]
 }
 
