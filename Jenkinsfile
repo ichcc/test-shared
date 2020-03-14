@@ -1,40 +1,29 @@
 node {
-    
-    // stage('Clone sources') {
-        git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
-    // }
-    // stage('Read config') {
+       git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
        
 
         config_yaml = readYaml file: './config.yml'
         mailRecipients = "log@1ng.me"
-        // print config_yaml.notifications
         notificationsSection=config_yaml.notifications
         truemailRecipient= config_yaml.notifications.email.recipients
         jobName = currentBuild.fullDisplayName
         // notifyCheck()
         // notifyEmail()
 
-    // }
     stage ('Build'){
         dir (config_yaml.build.projectFolder) {
             sh "${config_yaml.build.buildCommand}"
-            // sh "pwd"
         }
     }
     stage ('Database'){
         dir (config_yaml.database.databaseFolder) {
             sh "${config_yaml.database.databaseCommand}"
-            // sh "pwd"
         }
     }
     stage ('Deploy'){
         dir (config_yaml.build.projectFolder) {
             sh "${config_yaml.deploy.deployCommand}"
-            // sh "pwd"
         }
-
-        print config_yaml.deploy
     }
     stage ('Test'){
         print config_yaml.test
