@@ -23,15 +23,16 @@ pipeline {
         stage('Build'){
             steps{
                 script{
-                    println(valuesYaml.build)
+                    // println(valuesYaml.build)
                     // valuesYaml = loadValuesYaml()
-                    // valuesYaml.build.each{
+                    valuesYaml.build.each{
+                        println it
                         // println valuesYaml.build.projectFolder
                         // println valuesYaml.build.buildCommand
                 //         dir (valuesYaml.build.projectFolder){
                 //          sh "${valuesYaml.build.buildCommand}"
                 //         }
-                // // }
+                    }
             }
         }
     }    
