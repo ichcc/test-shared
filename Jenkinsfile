@@ -22,14 +22,14 @@ pipeline {
         stage('Build'){
             steps{
                 script{
-                    valuesYaml = loadValuesYaml()
-                    valuesYaml.build.each{
-                        println it.projectFolder
-                        println it.buildCommand
+                    // valuesYaml = loadValuesYaml()
+                    // valuesYaml.build.each{
+                        println valuesYaml.build.projectFolder
+                        println valuesYaml.build.buildCommand
                         // dir (it.projectFolder){
                         // sh "${it.buildCommand}"
                     // }
-                }
+                // }
             }
         }
     }    
