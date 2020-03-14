@@ -9,7 +9,7 @@ node {
         def config_yaml = readYaml file: './config.yml'
         mailRecipients = "log@1ng.me"
         print config_yaml.notifications
-
+        truemailRecipient= config_yaml.notifications.recipients
         jobName = currentBuild.fullDisplayName
 
         notifyEmail()
@@ -22,9 +22,12 @@ node {
 def notifyEmail() {
         emailext body: '''${SCRIPT, template="groovy-html.template"}''',
         mimeType: 'text/html',
-        subject: "[Jenkins] ${jobName}",
+        subject: "[Jenkins] ${jobName} ${truemailRecipient}",
         to: "${mailRecipients}",
         replyTo: "${mailRecipients}",
+
+
+
         recipientProviders: [[$class: 'CulpritsRecipientProvider']]
 }
 
