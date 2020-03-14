@@ -29,7 +29,7 @@ node {
         print config_yaml.test.each {
             dir (it.testFolder)
             print it.name
-            sh "${it.testCommand}"
+            print "${it.testCommand}"
     // println "Item: $it"
     }
     }
