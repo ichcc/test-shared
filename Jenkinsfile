@@ -60,13 +60,11 @@ pipeline {
         }
         stage('test') {
             steps {
-                parallel(
-                    script{
-                        valuesYaml.test.each{
-                            makeTest(it)                       
-                        }
+                script{
+                    valuesYaml.test.each{
+                        makeTest(it)                       
                     }
-                )                    
+                }                
             }
         }
     }
