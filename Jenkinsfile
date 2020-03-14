@@ -9,16 +9,16 @@ def makeTest(mapa){
     def folder = "${env.STAGE_NAME}Folder"
     def command = "${env.STAGE_NAME}Command"
     def shcommand = mapa."${command}"
-    // println shcommand
-    // println folder
+    println shcommand
+    println folder
     // def folder = ""+test+"Folder"
     // println folder
     // println mapa.get('testFolder')
-    script{
-        dir (mapa."${folder}"){
-            sh "${shcommand}"
-        }
-    }
+    // script{
+    //     dir (mapa."${folder}"){
+    //         sh "${shcommand}"
+    //     }
+    // }
     // println mapa."${folder}"
     
 
