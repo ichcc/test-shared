@@ -36,7 +36,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn --version'
+                script{
+                    valuesYaml.test.each{
+                        println it
+                    }
+                }                
             }
         }
     }
