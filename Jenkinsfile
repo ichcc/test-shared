@@ -38,7 +38,7 @@ pipeline {
                 }
             }
         }
-        steps('Test'){}
+        stage('Test'){}
     }    
         
         
