@@ -6,7 +6,8 @@ def loadValuesYaml(){
 }
 
 def makeTest(mapa){
-    println env.STAGE_NAME
+    def folder = "${env.STAGE_NAME}folder"
+    println folder
     // def folder = ""+test+"Folder"
     // println folder
     // println mapa.name
