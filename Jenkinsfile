@@ -9,9 +9,20 @@ node {
         def config_yaml = readYaml file: './config.yml'
         def mailRecipients = "logs@1ng.me"
         print config_yaml.notifications
+
+       def jobName = currentBuild.fullDisplayName
+
+        emailext body: '''${SCRIPT, template="groovy-html.template"}''',
+        mimeType: 'text/html',
+        subject: "[Jenkins] ${jobName}",
+        to: "${mailRecipients}",
+        replyTo: "${mailRecipients}",
+        recipientProviders: [[$class: 'CulpritsRecipientProvider']]
+
     }
       notifySuccessful()
 }
+
 
 
 def notifyStarted() {
