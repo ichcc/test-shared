@@ -9,14 +9,21 @@ node {
         def config_yaml = readYaml file: './config.yml'
         mailRecipients = "log@1ng.me"
         print config_yaml.notifications
+        notificationsSection=config_yaml.notifications
         truemailRecipient= config_yaml.notifications.email.recipients
         jobName = currentBuild.fullDisplayName
-
-        notifyEmail()
+        notifyCheck
+        // notifyEmail()
 
     }
       
 }
+
+
+def notifyCheck(){
+    print notificationsSection
+}
+
 
 
 def notifyEmail() {
@@ -30,40 +37,4 @@ def notifyEmail() {
 
         recipientProviders: [[$class: 'CulpritsRecipientProvider']]
 }
-
-def notifyStarted() {
-  // send to email
-  emailext (
-      to: "${env.mailRecipients}",
-      subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-      body: """
-STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
-
- 
-        
-Check console output at "${env.JOB_NAME} [${env.BUILD_NUMBER}] "
-
- """,
-      recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-    )
-}
-
-
-
-def notifySuccessful() {
-
-  emailext (
-      subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-      body: """
-SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
-
- 
-        
-Check console output at "${env.JOB_NAME} [${env.BUILD_NUMBER}] "
-
- """,
-      recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-    )
-}
-
 
