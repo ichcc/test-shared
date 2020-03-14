@@ -63,15 +63,13 @@ pipeline {
                 script{
                     valuesYaml.test.each{
                         parallel{
-                            stage("stage-${it.name}"){
-                                println it.test.testCommand
+                            "${it.name}":{println it.test.testCommand}
+                                // println it.test.testCommand
                                 //  dir (it.testFolder){
                                 //     sh "${it.test.testCommand}"
                                 // }
                             }
-
-                        }
-                                               
+                        }                                               
                     }
                 }                
             }
