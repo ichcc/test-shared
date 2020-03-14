@@ -1,6 +1,8 @@
 pipeline {
     agent any
     stages {
+         git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
+         config_yaml = readYaml file: './config.yml'
         stage('Test') {
             steps {
                 sh 'echo "Fail!"; exit 1'
