@@ -1,11 +1,21 @@
+#!groovy
+
+def loadValuesYaml(){
+  def valuesYaml = readYaml (file: './config.yml')
+  return valuesYaml;
+}
+
 pipeline {
     agent any
-    git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
+   
     stages {
-        stage('Clone') {
+        stage('Preparing') {
             steps {
-                
-                // def config_yaml = readYaml file: './config.yml'
+                 git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
+                 script{
+                    valuesYaml = loadValuesYaml()
+                    println valuesYaml.getClass()
+                }
             }
         }
     }
