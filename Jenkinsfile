@@ -27,7 +27,7 @@ STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
 Check console output at "${env.JOB_NAME} [${env.BUILD_NUMBER}] "
 
  """,
-    //   recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+      recipientProviders: [[$class: 'DevelopersRecipientProvider']]
     )
 }
 
