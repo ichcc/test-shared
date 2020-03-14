@@ -26,7 +26,9 @@ pipeline {
                     // println(valuesYaml.build)
                     // valuesYaml = loadValuesYaml()
                     valuesYaml.build.each{
-                        println it
+                        println it.projectFolder
+                        println it.buildCommand
+
                         // println valuesYaml.build.projectFolder
                         // println valuesYaml.build.buildCommand
                 //         dir (valuesYaml.build.projectFolder){
