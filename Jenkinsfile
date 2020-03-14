@@ -26,8 +26,8 @@ pipeline {
                     // println(valuesYaml.build)
                     // valuesYaml = loadValuesYaml()
                     valuesYaml.build.each{
-                        println it
-                        println it.getClass()
+                        println "${it.GetKey()}-${it.GetValue}"
+                        // println it.getClass()
                         // println it.buildCommand
 
                         // println valuesYaml.build.projectFolder
