@@ -27,7 +27,7 @@ pipeline {
                         println it.buildCommand
                         // dir (it.projectFolder){
                         // sh "${it.buildCommand}"
-                    }
+                    // }
                 }
             }
         }
