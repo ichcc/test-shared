@@ -1,11 +1,11 @@
 pipeline {
     agent any
     stages {
-         git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
-         config_yaml = readYaml file: './config.yml'
-        stage('Test') {
+        stage('Clone') {
             steps {
-                sh 'echo "Fail!"; exit 1'
+                git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
+                config_yaml = readYaml file: './config.yml'
+
             }
         }
     }
