@@ -10,7 +10,7 @@ node {
         mailRecipients = "log@1ng.me"
         print config_yaml.notifications
 
-        def jobName = currentBuild.fullDisplayName
+        jobName = currentBuild.fullDisplayName
 
         notifyEmail()
 
