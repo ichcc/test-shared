@@ -25,9 +25,10 @@ pipeline {
                 script{
                     // println(valuesYaml.build)
                     // valuesYaml = loadValuesYaml()
-                    valuesYaml.build.each{
-                        println it.projectFolder
-                        println it.buildCommand
+                    valuesYaml.build.eachWithIndex{
+                        println "$i: $it"
+                        // println it.projectFolder
+                        // println it.buildCommand
 
                         // println valuesYaml.build.projectFolder
                         // println valuesYaml.build.buildCommand
