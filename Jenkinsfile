@@ -26,12 +26,13 @@ node {
         }
     }
     stage ('Test'){
+        def branches = [:]
         config_yaml.test.each {
             dir (it.testFolder){
             print it.name
             sh "${it.testCommand}"
             }
-    // println "Item: $it"
+        parallel branches
     }
     }
       
