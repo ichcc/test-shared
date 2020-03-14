@@ -23,7 +23,7 @@ def makeTest(mapa){
 pipeline {
     agent any
     stages {
-        stage('Preparing') {
+        stage('preparing') {
             steps {
                 git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
                  script{
@@ -31,7 +31,7 @@ pipeline {
                     }
             }
         }
-        stage('Build') {
+        stage('build') {
             steps {
                 script{
                     dir (valuesYaml.build.projectFolder){
@@ -40,7 +40,7 @@ pipeline {
                 }
             }
         }
-        stage('Database') {
+        stage('database') {
             steps {
                 script{
                     dir (valuesYaml.database.databaseFolder){
@@ -49,7 +49,7 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('test') {
             steps {
                 script{
                     valuesYaml.test.each{
