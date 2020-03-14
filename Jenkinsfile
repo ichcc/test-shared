@@ -7,7 +7,7 @@ node {
        
 
         def config_yaml = readYaml file: './config.yml'
-        def DevelopersRecipientProvider = "logs@1ng.me"
+        def mailRecipients = "logs@1ng.me"
         print config_yaml.notifications
     }
       notifySuccessful()
@@ -17,6 +17,7 @@ node {
 def notifyStarted() {
   // send to email
   emailext (
+      to: ${mailRecipients}
       subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
       body: """
 STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
@@ -26,7 +27,7 @@ STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
 Check console output at "${env.JOB_NAME} [${env.BUILD_NUMBER}] "
 
  """,
-      recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+    //   recipientProviders: [[$class: 'DevelopersRecipientProvider']]
     )
 }
 
