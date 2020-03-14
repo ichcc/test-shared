@@ -18,5 +18,15 @@ pipeline {
                 sh 'mvn --version'
             }
         }
+        stage('Database') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
     }
 }
