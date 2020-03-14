@@ -12,7 +12,7 @@ node {
         notificationsSection=config_yaml.notifications
         truemailRecipient= config_yaml.notifications.email.recipients
         jobName = currentBuild.fullDisplayName
-        notifyCheck
+        notifyCheck()
         // notifyEmail()
 
     }
