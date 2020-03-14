@@ -6,22 +6,30 @@ node {
     stage('Read config') {
        
 
-        def config_yaml = readYaml file: './config.yml'
+        config_yaml = readYaml file: './config.yml'
         mailRecipients = "log@1ng.me"
-        print config_yaml.notifications
+        // print config_yaml.notifications
         notificationsSection=config_yaml.notifications
         truemailRecipient= config_yaml.notifications.email.recipients
         jobName = currentBuild.fullDisplayName
-        notifyCheck()
+        // notifyCheck()
         // notifyEmail()
 
     }
+    stage ('Build'){}
+        print config_yaml.build
+    stage ('Database'){}
+        print config_yaml.database
+    stage ('Deploy'){}
+        print config_yaml.deploy
+    stage ('Test'){}
+        print test
       
 }
 
 
 def notifyCheck(){
-    print notificationsSection
+    print notificationsSection.
 }
 
 
