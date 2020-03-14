@@ -74,24 +74,24 @@ pipeline {
             steps {
                 script{
                       
-                    valuesYaml.test.each{
+                    // valuesYaml.test.each{
                         
-                        def taskName = transformIntoStep(it.name)
-                        def task = "${it.testCommand}"
-                        // println it.name
-                        // parallel{ stage(transformIntoStep(it.name)){ task } }
-                        // parallel{
-                        //     stage(taskName){
-                        //         println task
-                        //     }
-                        // }    
-                                // println it.test.testCommand
-                                //  dir (it.testFolder){
-                                //     sh "${it.test.testCommand}"
-                                // }
+                    //     def taskName = transformIntoStep(it.name)
+                    //     def task = "${it.testCommand}"
+                    //     // println it.name
+                    //     // parallel{ stage(transformIntoStep(it.name)){ task } }
+                    //     // parallel{
+                    //     //     stage(taskName){
+                    //     //         println task
+                    //     //     }
+                    //     // }    
+                    //             // println it.test.testCommand
+                    //             //  dir (it.testFolder){
+                    //             //     sh "${it.test.testCommand}"
+                    //             // }
                             
 
-                        }                                               
+                    //     }                                               
                     }
                 }                
             }
