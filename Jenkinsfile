@@ -5,6 +5,13 @@ def loadValuesYaml(){
   return valuesYaml;
 }
 
+def transformIntoStep(jobFullName) {
+    return {
+        // the build function runs "mvn -f ${jobFullName}/pom.xml"
+        build jobFullName
+    }
+}
+
 def makeTest(mapa){
     def folder = "${env.STAGE_NAME}Folder"
     def command = "${env.STAGE_NAME}Command"
@@ -61,8 +68,10 @@ pipeline {
         stage('test') {
             steps {
                 script{
+                      
                     valuesYaml.test.each{
-                        def taskName = "stage-${it.name}"
+                        
+                        def taskName = transformIntoStep(it.name)
                         def task = "${it.testCommand}"
                         parallel{ stage("${taskName}"){ task } }
                             
