@@ -16,7 +16,7 @@ pipeline {
                     valuesYaml = loadValuesYaml()
                     // valuesYaml.each{
                     //     println it
-                    // }
+                    }
                 }
             }
         }
