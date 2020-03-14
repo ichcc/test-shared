@@ -5,9 +5,11 @@ def loadValuesYaml(){
   return valuesYaml;
 }
 
-def makeTest(stage,mapa){
-    def folder = ""+test+"Folder"
-    println folder
+def makeTest(mapa){
+    def stageName = getCurrentStageName()
+    println stageName
+    // def folder = ""+test+"Folder"
+    // println folder
     // println mapa.name
     
 
@@ -51,7 +53,7 @@ pipeline {
             steps {
                 script{
                     valuesYaml.test.each{
-                        makeTest("test",it)                       
+                        makeTest(it)                       
                     }
                 }                
             }
