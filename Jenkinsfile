@@ -22,6 +22,7 @@ pipeline {
         stage('Build'){
             steps{
                 script{
+                    valuesYaml = loadValuesYaml()
                     valuesYaml.build.each{
                         println it.projectFolder
                         println it.buildCommand
