@@ -23,8 +23,10 @@ pipeline {
             steps{
                 script{
                     valuesYaml.build.each{
-                        dir (it.projectFolder){
-                        sh "${it.buildCommand}"
+                        println it.projectFolder
+                        println it.buildCommand
+                        // dir (it.projectFolder){
+                        // sh "${it.buildCommand}"
                     }
                 }
             }
