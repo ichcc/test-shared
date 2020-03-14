@@ -7,11 +7,15 @@ def loadValuesYaml(){
 
 def makeTest(mapa){
     def folder = "${env.STAGE_NAME}Folder"
+    def command = "${env.STAGE_NAME}Command"
     // println folder
     // def folder = ""+test+"Folder"
     // println folder
     // println mapa.get('testFolder')
-    println mapa."${folder}"
+    dir (mapa."${folder}"){
+        sh "${command}"
+    }
+    // println mapa."${folder}"
     
 
     // mapa.each{
