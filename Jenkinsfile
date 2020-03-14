@@ -8,6 +8,6 @@ def loadValuesYaml(){
 pipeline {
     agent any
     stages{
-        
+      stage ('Preparing'){}
     }
 }
