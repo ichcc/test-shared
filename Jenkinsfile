@@ -59,6 +59,7 @@ pipeline {
             }
         }
         stage('test') {
+            def branches = [:]
             steps {
                 script{
                     valuesYaml.test.each{
@@ -66,6 +67,7 @@ pipeline {
                     }
                 }                
             }
+            parallel branches
         }
     }
 }
