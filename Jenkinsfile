@@ -51,9 +51,9 @@ pipeline {
         }
         stage('database') {
             steps {
-                script{
-                    dir (valuesYaml.database.databaseFolder){
-                        sh "${valuesYaml.database.databaseCommand}"
+                script{{
+                    valuesYaml.test.each{
+                        makeTest(it)                       
                     }
                 }
             }
