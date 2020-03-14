@@ -52,7 +52,7 @@ pipeline {
         stage('database') {
             steps {
                 script{
-                    valuesYaml.test.each{
+                    valuesYaml.database.each{
                         makeTest(it)                       
                     }
                 }
