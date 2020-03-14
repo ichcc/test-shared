@@ -9,7 +9,9 @@ pipeline {
     agent any
     stages {
       stage ('Preparing') {
-        println
+        steps{
+          println
+        }        
       }
     }
 }
