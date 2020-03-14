@@ -21,16 +21,18 @@ pipeline {
             }
         stage('Build'){
             steps{
-                valuesYaml.build.each{
-                      dir (it.projectFolder) {
+                script{
+                    valuesYaml.build.each{
+                        dir (it.projectFolder){
                         sh "${it.buildCommand}"
-                        }
+                    }
                 }
             }
-        }    
+        }
+    }    
         
         
-    }
+// }
     
     // post {
     //     always {
