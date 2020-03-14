@@ -1,11 +1,11 @@
 pipeline {
     agent any
+    git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
     stages {
         stage('Clone') {
             steps {
-                git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
+                
                 // def config_yaml = readYaml file: './config.yml'
-
             }
         }
     }
