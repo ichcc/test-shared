@@ -52,8 +52,8 @@ pipeline {
         stage('database') {
             steps {
                 script{
-                    dir (valuesYaml.database.projectFolder){
-                        sh "${valuesYaml.database.buildCommand}"
+                    dir (valuesYaml.database.databaseFolder){
+                        sh "${valuesYaml.database.databaseCommand}"
                     }
                 }
             }
