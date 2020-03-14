@@ -8,9 +8,15 @@ def loadValuesYaml(){
 pipeline {
     agent any
     stages {
-        stage('Build') {
-
+        stage('Preparing') {
+            steps {
+                sh 'mvn --version'
+            }
         }
-        
+        stage('Build') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
     }
 }
