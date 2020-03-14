@@ -62,7 +62,7 @@ pipeline {
             steps {
                 script{
                     valuesYaml.test.each{
-                        makeTest(it)                       
+                        println(it)                       
                     }
                 }                
             }
