@@ -29,10 +29,22 @@ pipeline {
                 }
             }
         }
+        stage('Database'){
+            steps {
+                script{
+                    dir (valuesYaml.database.databaseFolder){
+                        sh "${valuesYaml.database.buildCommand}"
+                    }
+
+                }
+            }
+        }
     }    
         
         
-// }
+// 
+
+}
     
     post {
         always {
