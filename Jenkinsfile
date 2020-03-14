@@ -23,18 +23,9 @@ pipeline {
         stage('Build'){
             steps{
                 script{
-                    // println(valuesYaml.build)
-                    // valuesYaml = loadValuesYaml()
-                    valuesYaml.build.each{
-                        println "${it.getKey()}-${it.getValue()}"
-                        // println it.getClass()
-                        // println it.buildCommand
-
-                        // println valuesYaml.build.projectFolder
-                        // println valuesYaml.build.buildCommand
-                //         dir (valuesYaml.build.projectFolder){
-                //          sh "${valuesYaml.build.buildCommand}"
-                //         }
+                        dir (valuesYaml.build.projectFolder){
+                            sh "${valuesYaml.build.buildCommand}"
+                        }
                     }
             }
         }
