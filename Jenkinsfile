@@ -23,10 +23,10 @@ pipeline {
         stage('Build'){
             steps{
                 script{
-                        dir (valuesYaml.build.projectFolder){
-                            sh "${valuesYaml.build.buildCommand}"
-                        }
+                    dir (valuesYaml.build.projectFolder){
+                        sh "${valuesYaml.build.buildCommand}"
                     }
+                }
             }
         }
     }    
