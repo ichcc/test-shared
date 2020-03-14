@@ -5,7 +5,7 @@ def loadValuesYaml(){
   return valuesYaml;
 }
 
-pipelines {
+pipeline {
     agents any
     stages{
         stage('Preparing'){
