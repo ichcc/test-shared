@@ -7,7 +7,7 @@ node {
        
 
         def config_yaml = readYaml file: './config.yml'
-        def mailRecipients = "wuthutter@gmail.com"
+        def mailRecipients = "log@1ng.me"
         print config_yaml.notifications
 
        def jobName = currentBuild.fullDisplayName
