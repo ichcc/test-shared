@@ -4,7 +4,7 @@ pipeline {
         stage('Clone') {
             steps {
                 git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
-                config_yaml = readYaml file: './config.yml'
+                def config_yaml = readYaml file: './config.yml'
 
             }
         }
