@@ -27,7 +27,11 @@ pipeline {
         }
         stage('Database') {
             steps {
-                sh 'mvn --version'
+                script{
+                    dir (valuesYaml.database.databaseFolder){
+                        sh "${valuesYaml.database.databaseCommand}"
+                    }
+                }
             }
         }
         stage('Test') {
