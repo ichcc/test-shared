@@ -26,7 +26,7 @@ node {
         }
     }
     stage ('Test'){
-        print config_yaml.test.each {
+        config_yaml.test.each {
             // dir (it.testFolder)
             // print it.name
             print "${it.testCommand}"
