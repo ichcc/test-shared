@@ -1,3 +1,21 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Ok') {
+            steps {
+                echo "Ok"
+            }
+        }
+    }
+    post {
+        always {
+            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+        }
+    }
+}
+
+
 node {
     stage('Clone sources') {
         git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
@@ -9,9 +27,4 @@ node {
         
         print config_yaml.notifications
     }
-    post {
-    always {
-      echo 'I will always execute this!'
-    }
-}
 }
