@@ -11,7 +11,7 @@ pipeline {
       stage ('Preparing') {
         steps{
           scripts {
-            println
+            print
           }     
         }        
       }
