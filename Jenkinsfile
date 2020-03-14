@@ -19,9 +19,19 @@ pipeline {
                     }
                 }
             }
+        stage('Build'){
+            steps{
+                valuesYaml.build.each{
+                      dir (it.projectFolder) {
+                        sh "${it.buildCommand}"
+                        }
+                }
+            }
+        }    
         
         
     }
+    
     // post {
     //     always {
     //         echo 'This will always run'
