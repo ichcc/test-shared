@@ -18,8 +18,8 @@ node {
     }
     stage ('Build'){
         print config_yaml.build
-        dir ('project') {
-            sh 'pwd'
+        dir (config_yaml.build.projectFolder) {
+            sh "${config_yaml.build.buildCommand}"
         }
     }
     stage ('Database'){
