@@ -1,3 +1,19 @@
+node {
+    notifyStarted()
+    stage('Clone sources') {
+        git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
+    }
+    stage('Read config') {
+       
+
+        def config_yaml = readYaml file: './config.yml'
+        
+        print config_yaml.notifications
+    }
+      notifySuccessful()
+}
+
+
 def notifyStarted() {
   // send to email
   emailext (
@@ -15,7 +31,6 @@ Check console output at "${env.JOB_NAME} [${env.BUILD_NUMBER}] "
 }
 
 
-def notifyStarted() { /* .. */ }
 
 def notifySuccessful() {
   slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
@@ -38,17 +53,4 @@ Check console output at "${env.JOB_NAME} [${env.BUILD_NUMBER}] "
     )
 }
 
-node {
-    notifyStarted()
-    stage('Clone sources') {
-        git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
-    }
-    stage('Read config') {
-       
 
-        def config_yaml = readYaml file: './config.yml'
-        
-        print config_yaml.notifications
-    }
-      notifySuccessful()
-}
