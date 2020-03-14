@@ -6,11 +6,11 @@ def loadValuesYaml(){
 }
 
 def makeTest(mapa){
-    def folder = "${env.STAGE_NAME}folder"
-    println folder
+    def folder = "${env.STAGE_NAME}Folder"
+    // println folder
     // def folder = ""+test+"Folder"
     // println folder
-    // println mapa.name
+    println mapa.${folder}
     
 
     // mapa.each{
