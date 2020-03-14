@@ -10,7 +10,8 @@ pipeline {
     stages {
         stage('Preparing') {
             steps {
-                sh 'mvn --version'
+                git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
+                valuesYaml = loadValuesYaml()                
             }
         }
     }
