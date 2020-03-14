@@ -17,6 +17,8 @@ pipeline {
         stage('Database'){
 
         }
-        stage('Test')
+        stage('Test'){
+            
+        }
     }
 }
