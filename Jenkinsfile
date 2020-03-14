@@ -38,8 +38,9 @@ pipeline {
             steps {
                 script{
                     valuesYaml.test.each{
-                        println it
-                        println it.getClass()
+                        it.each{
+                            println it
+                        }                        
                     }
                 }                
             }
