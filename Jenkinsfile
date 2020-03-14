@@ -20,6 +20,7 @@ pipeline {
                     }
                 }
             }
+        }    
         stage('Build'){
             steps{
                 script{
@@ -39,10 +40,9 @@ pipeline {
             }
         }
         stage('Test'){
-            
         }        
 
-    }    
+// }    
         
         
 // 
