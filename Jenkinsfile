@@ -39,6 +39,7 @@ pipeline {
                 script{
                     valuesYaml.test.each{
                         println it
+                        println it.getClass()
                     }
                 }                
             }
