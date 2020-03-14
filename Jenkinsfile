@@ -25,7 +25,7 @@ node {
     }
     stage ('Database'){
         print config_yaml.database
-        dir ("../${config_yaml.build.databaseFolder}") {
+        dir ("../${config_yaml.database.databaseFolder}") {
             sh "pwd"
         }
     }
