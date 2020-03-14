@@ -17,20 +17,23 @@ node {
 
     }
     stage ('Build'){
-        print config_yaml.build
         dir (config_yaml.build.projectFolder) {
             sh "${config_yaml.build.buildCommand}"
             // sh "pwd"
         }
     }
     stage ('Database'){
-        print config_yaml.database
         dir (config_yaml.database.databaseFolder) {
             sh "${config_yaml.database.databaseCommand}"
             // sh "pwd"
         }
     }
     stage ('Deploy'){
+        dir (config_yaml.build.projectFolder) {
+            sh "${config_yaml.deploy.deployCommand}"
+            // sh "pwd"
+        }
+
         print config_yaml.deploy
     }
     stage ('Test'){
