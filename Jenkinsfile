@@ -14,7 +14,7 @@ pipeline {
                  git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
                  script{
                     valuesYaml = loadValuesYaml()
-                    print valuesYaml.getClass()
+                    // print valuesYaml.getClass()
                     // valuesYaml.each{
                     //     println it
                     }
@@ -23,7 +23,7 @@ pipeline {
         stage('Build'){
             steps{
                 script{
-                    println(valuesYaml)
+                    println(valuesYaml.build)
                     // valuesYaml = loadValuesYaml()
                     // valuesYaml.build.each{
                         // println valuesYaml.build.projectFolder
