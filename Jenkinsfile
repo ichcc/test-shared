@@ -30,7 +30,8 @@ node {
             dir (it.testFolder)
             print it.name
             sh "${it.testCommand}"
-    // println "Item: $it"}
+    // println "Item: $it"
+    }
     }
       
 }
