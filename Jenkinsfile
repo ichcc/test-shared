@@ -10,7 +10,7 @@ def makeTest(mapa){
     // println folder
     // def folder = ""+test+"Folder"
     // println folder
-    println mapa.${folder}
+    println mapa.getValue(folder)
     
 
     // mapa.each{
