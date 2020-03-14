@@ -24,6 +24,8 @@ node {
     }
     stage ('Database'){
         print config_yaml.database
+        dir (config_yaml.build.databaseFolder) {
+            sh "pwd"
     }
     stage ('Deploy'){
         print config_yaml.deploy
