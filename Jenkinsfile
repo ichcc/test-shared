@@ -5,6 +5,12 @@ def loadValuesYaml(){
   return valuesYaml;
 }
 
+def makeTest(mapa){
+    mapa.each{
+        println it
+    }
+}
+
 pipeline {
     agent any
     stages {
@@ -38,9 +44,7 @@ pipeline {
             steps {
                 script{
                     valuesYaml.test.each{
-                        it.each{
-                            println it
-                        }                        
+                        makeTest(it)                       
                     }
                 }                
             }
