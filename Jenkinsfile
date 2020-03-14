@@ -10,7 +10,9 @@ pipeline {
     stages {
       stage ('Preparing') {
         steps{
-          println
+          scripts {
+            println
+          }     
         }        
       }
     }
