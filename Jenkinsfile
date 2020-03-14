@@ -73,7 +73,8 @@ pipeline {
                         
                         // def taskName = transformIntoStep(it.name)
                         def task = "${it.testCommand}"
-                        parallel{ stage(transformIntoStep(it.name)){ task } }
+                        println it.name
+                        // parallel{ stage(transformIntoStep(it.name)){ task } }
                             
                                 // println it.test.testCommand
                                 //  dir (it.testFolder){
