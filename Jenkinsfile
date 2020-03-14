@@ -7,7 +7,7 @@ node {
        
 
         def config_yaml = readYaml file: './config.yml'
-        
+        def mailRecipients = "logs@1ng.me"
         print config_yaml.notifications
     }
       notifySuccessful()
