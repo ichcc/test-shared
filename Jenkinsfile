@@ -63,7 +63,7 @@ pipeline {
                 script{
                     valuesYaml.test.each{
                         def taskName = "${it.name}"
-                        def task = {println it.test.testCommand}
+                        def task = "${it.test.testCommand}"
                         }                                               
                     }
                 }                
