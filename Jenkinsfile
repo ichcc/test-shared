@@ -18,7 +18,7 @@ def makeTest(mapa){
         dir (mapa."${folder}"){
             sh "${shcommand}"
         }
-    // }
+    }
     // println mapa."${folder}"
     
 
