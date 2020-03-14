@@ -8,6 +8,9 @@ def loadValuesYaml(){
 pipeline {
     agent any
     stages {
+        stage ('Build') {
+            
+        }
         stage('Preparing') {
             steps {
                 git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
@@ -16,6 +19,6 @@ pipeline {
                 }                                
             }
         }
-        stage ('Build') {}
+        
     }
 }
