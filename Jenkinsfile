@@ -26,7 +26,8 @@ node {
         }
     }
     stage ('Test'){
-        print config_yaml.test
+        print config_yaml.testeach {
+    println "Item: $it"}
     }
       
 }
