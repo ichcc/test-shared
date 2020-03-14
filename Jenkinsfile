@@ -12,7 +12,7 @@ node {
 
         def jobName = currentBuild.fullDisplayName
 
-        notifySuccessful()
+        notifyEmail()
 
     }
       
@@ -22,9 +22,9 @@ node {
 def notifyEmail() {
         emailext body: '''${SCRIPT, template="groovy-html.template"}''',
         mimeType: 'text/html',
-        subject: "[Jenkins] ${jobName}",
-        to: "${mailRecipients}",
-        replyTo: "${mailRecipients}",
+        subject: "[Jenkins] ${env.jobName}",
+        to: "${env.mailRecipients}",
+        replyTo: "${env.mailRecipients}",
         recipientProviders: [[$class: 'CulpritsRecipientProvider']]
 }
 def notifyStarted() {
