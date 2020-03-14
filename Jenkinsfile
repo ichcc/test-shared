@@ -71,7 +71,8 @@ pipeline {
             }
         }
         stage('test') {
-            // steps {
+            steps {
+                print "${env.STAGE_NAME}"
                 // script{
                       
                 //     valuesYaml.test.each{
@@ -93,7 +94,7 @@ pipeline {
 
                 //         }                                               
                 //     }
-                // }                
+                }                
             }
     }
 }
