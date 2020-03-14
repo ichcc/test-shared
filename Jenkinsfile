@@ -16,14 +16,21 @@ node {
         // notifyEmail()
 
     }
-    stage ('Build'){}
+    stage ('Build'){
         print config_yaml.build
-    stage ('Database'){}
+        dir ('project') {
+            sh 'pwd'
+        }
+    }
+    stage ('Database'){
         print config_yaml.database
-    stage ('Deploy'){}
+    }
+    stage ('Deploy'){
         print config_yaml.deploy
-    stage ('Test'){}
+    }
+    stage ('Test'){
         print config_yaml.test
+    }
       
 }
 
