@@ -25,11 +25,11 @@ pipeline {
                 script{
                     // valuesYaml = loadValuesYaml()
                     // valuesYaml.build.each{
-                        println valuesYaml.build.projectFolder
-                        println valuesYaml.build.buildCommand
-                        // dir (it.projectFolder){
-                        // sh "${it.buildCommand}"
-                    // }
+                        // println valuesYaml.build.projectFolder
+                        // println valuesYaml.build.buildCommand
+                        dir (valuesYaml.build.projectFolder){
+                         sh "${valuesYaml.build.buildCommand}"
+                        }
                 // }
             }
         }
