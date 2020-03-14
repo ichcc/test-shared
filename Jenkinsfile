@@ -28,9 +28,7 @@ node {
 }
 
 
-def notifyCheck(){
-    print notificationsSection.
-}
+
 
 
 
