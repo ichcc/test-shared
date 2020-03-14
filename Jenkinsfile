@@ -5,10 +5,11 @@ def loadValuesYaml(){
   return valuesYaml;
 }
 
-def makeTest(mapa){
-    println mapa.testFolder
-    println mapa.name
-    println mapa.testCommand
+def makeTest(stage,mapa){
+    def folder = ""+test+"Folder"
+    println mapa.getValue(folder)
+    // println mapa.name
+    
 
     // mapa.each{
     //     if it.getKey()="testFolder"
@@ -50,7 +51,7 @@ pipeline {
             steps {
                 script{
                     valuesYaml.test.each{
-                        makeTest(it)                       
+                        makeTest("test",it)                       
                     }
                 }                
             }
