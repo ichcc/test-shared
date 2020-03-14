@@ -1,9 +1,9 @@
 node {
     
-    stage('Clone sources') {
+    // stage('Clone sources') {
         git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
-    }
-    stage('Read config') {
+    // }
+    // stage('Read config') {
        
 
         config_yaml = readYaml file: './config.yml'
@@ -15,7 +15,7 @@ node {
         // notifyCheck()
         // notifyEmail()
 
-    }
+    // }
     stage ('Build'){
         dir (config_yaml.build.projectFolder) {
             sh "${config_yaml.build.buildCommand}"
