@@ -19,14 +19,15 @@ node {
     stage ('Build'){
         print config_yaml.build
         dir (config_yaml.build.projectFolder) {
-            // sh "${config_yaml.build.buildCommand}"
-            sh "pwd"
+            sh "${config_yaml.build.buildCommand}"
+            // sh "pwd"
         }
     }
     stage ('Database'){
         print config_yaml.database
         dir ("../${config_yaml.database.databaseFolder}") {
-            sh "pwd"
+            sh "${config_yaml.database.databaseCommand}"
+            // sh "pwd"
         }
     }
     stage ('Deploy'){
