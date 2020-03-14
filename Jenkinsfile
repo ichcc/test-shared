@@ -1,4 +1,5 @@
-node {
+pipeline {
+       agent any
        git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
        
 
