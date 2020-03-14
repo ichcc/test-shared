@@ -10,6 +10,7 @@ def makeTest(mapa){
     // println folder
     // def folder = ""+test+"Folder"
     // println folder
+    println mapa.get('testFolder')
     println mapa.get("${folder}")
     
 
