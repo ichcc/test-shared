@@ -6,7 +6,7 @@ def loadValuesYaml(){
 }
 
 pipeline {
-    agents any
+    agent any
     stages{
         stage('Preparing'){
 
@@ -18,7 +18,7 @@ pipeline {
 
         }
         stage('Test'){
-            
+
         }
     }
 }
