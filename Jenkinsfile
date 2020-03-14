@@ -23,7 +23,7 @@ node {
     stage ('Deploy'){}
         print config_yaml.deploy
     stage ('Test'){}
-        print test
+        print config_yaml.test
       
 }
 
