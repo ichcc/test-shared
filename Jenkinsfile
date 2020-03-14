@@ -35,7 +35,6 @@ pipeline {
                     dir (valuesYaml.database.databaseFolder){
                         sh "${valuesYaml.database.buildCommand}"
                     }
-
                 }
             }
         }
