@@ -1,5 +1,5 @@
 #!groovy
-
+def truemailRecipient = valuesYaml.notifications.email.recipients
 def loadValuesYaml(){
   def valuesYaml = readYaml (file: './config.yml')
   return valuesYaml;
@@ -124,9 +124,9 @@ pipeline {
                 emailext (
                     to: "log@1ng.me",
                     mimeType: 'text/html',
-                    subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' ${env.valuesYaml.notifications.email.recipients}",
+                    subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
                     body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-                    <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
+                    <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p></br>This email for ${truemailRecipient}""",
                     recipientProviders: [[$class: 'DevelopersRecipientProvider']]
                 )
             
