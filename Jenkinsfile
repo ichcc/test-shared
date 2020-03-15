@@ -74,7 +74,7 @@ pipeline {
             steps {
                 script{
                     stepsForParallel = valuesYaml.test.collectEntries { 
-                            ["${it.name}" : transformIntoStep(stageName)]
+                            ["${it.name}" : transformIntoStep()]
                         }
                         println stepsForParallel
                         println stepsForParallel.getClass()
