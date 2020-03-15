@@ -106,7 +106,7 @@ pipeline {
     }
 
     post {
-        truemailRecipient = valuesYaml.notifications.email.recipients
+        
         always {
             // echo 'This will always run'
         }
@@ -115,6 +115,7 @@ pipeline {
         }
         failure {
             steps{
+                truemailRecipient = valuesYaml.notifications.email.recipients
                 echo 'This will run only if failed'
                 notifyEmail (truemailRecipient)
 
