@@ -115,7 +115,7 @@ pipeline {
         }
         failure {
             steps{
-                truemailRecipient = valuesYaml.notifications.email.recipients
+                def truemailRecipient = valuesYaml.notifications.email.recipients
                 echo 'This will run only if failed'
                 notifyEmail (truemailRecipient)
 
