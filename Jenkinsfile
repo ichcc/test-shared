@@ -77,6 +77,8 @@ pipeline {
                     stepsForParallel = valuesYaml.test.collectEntries { 
                             ["${it.name}" : transformIntoStep(stageName, it.testFolder, it.testCommand)]
                         }
+                        println stepsForParallel
+                        println stepsForParallel.getClass()
                         stage(stageName) {
                             parallel stepsForParallel
                         }
