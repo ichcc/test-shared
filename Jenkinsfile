@@ -71,8 +71,8 @@ pipeline {
             }
         }
         stage('test') {
-            steps {
-                print "${env.STAGE_NAME}"
+            // steps {
+                // print "${env.STAGE_NAME}"
                 def stepsForParallel = valuesYaml.test.collectEntries { 
                             ["${it.name}" : transformIntoStep(stageName, it.testFolder, it.testCommand)]
                         }
@@ -100,7 +100,7 @@ pipeline {
 
                 //         }                                               
                 //     }
-                }                
+                // }                
             }
     }
 }
