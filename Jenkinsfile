@@ -5,6 +5,19 @@ def loadValuesYaml(){
   return valuesYaml;
 }
 
+def notifyEmail(truemailRecipient) {
+        emailext body: '''${SCRIPT, template="groovy-html.template"}''',
+        mimeType: 'text/html',
+        subject: "[Jenkins] ${jobName} ${truemailRecipient}",
+        to: "${mailRecipients}",
+        replyTo: "${mailRecipients}",
+
+
+
+        recipientProviders: [[$class: 'CulpritsRecipientProvider']]
+}
+
+
 def transformIntoStep(inputString) {
     // We need to wrap what we return in a Groovy closure, or else it's invoked
     // when this method is called, not when we pass it to parallel.
@@ -93,21 +106,23 @@ pipeline {
     }
 
     post {
+        def truemailRecipient = valuesYaml.notifications.email.recipients
         always {
-            echo 'This will always run'
+            // echo 'This will always run'
         }
         success {
             echo 'This will run only if successful'
         }
         failure {
             echo 'This will run only if failed'
+            notifyEmail (truemailRecipient)
         }
         unstable {
-            echo 'This will run only if the run was marked as unstable'
+            // echo 'This will run only if the run was marked as unstable'
         }
         changed {
-            echo 'This will run only if the state of the Pipeline has changed'
-            echo 'For example, if the Pipeline was previously failing but is now successful'
+            // echo 'This will run only if the state of the Pipeline has changed'
+            // echo 'For example, if the Pipeline was previously failing but is now successful'
         }
     }
 
