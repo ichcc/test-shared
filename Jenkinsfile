@@ -79,9 +79,9 @@ pipeline {
                         }
                         println stepsForParallel
                         println stepsForParallel.getClass()
-                        stage(stageName) {
-                            parallel stepsForParallel
-                        }
+                        // stage(stageName) {
+                        //     parallel stepsForParallel
+                        // }
                       
                 //     valuesYaml.test.each{
                         
