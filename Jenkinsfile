@@ -80,7 +80,7 @@ pipeline {
                         println stepsForParallel
                         println stepsForParallel.getClass()
                         // stage(stageName) {
-                        //     parallel stepsForParallel
+                            parallel stepsForParallel
                         // }
                       
                 //     valuesYaml.test.each{
