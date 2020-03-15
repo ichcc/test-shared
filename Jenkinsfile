@@ -91,10 +91,7 @@ pipeline {
                 script{
                          def branches = [:]
                         i = 0
-                        def fg = 30
-                        def bg = 46
-                        def style = "${(char)27}[$fg;$bg"+"m"
-                        println(style+"HELLO")
+                        println("HELLO",Ansi.RED)
                         valuesYaml.test.each{
                         branches["test-branch ${i}"] = {
                             dir (it.testFolder){
