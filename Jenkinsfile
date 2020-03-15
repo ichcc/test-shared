@@ -5,17 +5,17 @@ def loadValuesYaml(){
   return valuesYaml;
 }
 
-// def transformIntoStep(inputString) {
-//     // We need to wrap what we return in a Groovy closure, or else it's invoked
-//     // when this method is called, not when we pass it to parallel.
-//     // To do this, you need to wrap the code below in { }, and either return
-//     // that explicitly, or use { -> } syntax.
-//     return {
-//         node {
-//             echo inputString
-//         }
-//     }
-// }
+def transformIntoStep(inputString) {
+    // We need to wrap what we return in a Groovy closure, or else it's invoked
+    // when this method is called, not when we pass it to parallel.
+    // To do this, you need to wrap the code below in { }, and either return
+    // that explicitly, or use { -> } syntax.
+    return {
+        node {
+            echo inputString
+        }
+    }
+}
 
 def makeTest(mapa){
     def folder = "${env.STAGE_NAME}Folder"
@@ -74,7 +74,7 @@ pipeline {
             steps {
                 script{
                     stepsForParallel = valuesYaml.test.collectEntries { 
-                            ["${it.name}" : transformIntoStep()]
+                            ["${it.name}" : transformIntoStep(it)]
                         }
                         println stepsForParallel
                         println stepsForParallel.getClass()
