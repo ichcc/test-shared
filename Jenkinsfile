@@ -56,6 +56,9 @@ def makeTest(mapa){
 }
 
 pipeline {
+    options {
+    ansiColor('xterm')
+    }
     agent any
     stages {
         stage('preparing') {
@@ -67,7 +70,7 @@ pipeline {
                     }
             }
         }
-
+        
         stage('build') {
             steps {
                 script{
@@ -92,8 +95,8 @@ pipeline {
                          def branches = [:]
                         i = 0
                         valuesYaml.test.each{
-
-                        branches["\u001B[31mbranch${i}\u001B[0m"] = {
+                        def color = "${i+31}"
+                        branches["branch${i}"] = {
                             dir (it.testFolder){
                                 sh "${it.testCommand}"
                             }
