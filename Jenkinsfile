@@ -73,13 +73,13 @@ pipeline {
         stage('test') {
             steps {
                 print "${env.STAGE_NAME}"
-                stepsForParallel = valuesYaml.test.collectEntries { 
-                        ["${it.name}" : transformIntoStep(stageName, it.testFolder, it.testCommand)]
-                    }
-                    stage(stageName) {
-                        parallel stepsForParallel
-                    }
-                // script{
+                script{
+                    stepsForParallel = valuesYaml.test.collectEntries { 
+                            ["${it.name}" : transformIntoStep(stageName, it.testFolder, it.testCommand)]
+                        }
+                        stage(stageName) {
+                            parallel stepsForParallel
+                        }
                       
                 //     valuesYaml.test.each{
                         
@@ -99,7 +99,7 @@ pipeline {
                             
 
                 //         }                                               
-                //     }
+                    }
                 }                
             }
     }
