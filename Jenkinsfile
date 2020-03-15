@@ -1,5 +1,5 @@
 #!groovy
-def truemailRecipient = valuesYaml.notifications.email.recipients
+
 def loadValuesYaml(){
   def valuesYaml = readYaml (file: './config.yml')
   return valuesYaml;
@@ -63,6 +63,7 @@ pipeline {
                 git url: 'https://github.com/glebsamsonov-nbcuni/test-maven-project.git'
                  script{
                     valuesYaml = loadValuesYaml()
+                    truemailRecipient = valuesYaml.notifications.email.recipients
                     }
             }
         }
