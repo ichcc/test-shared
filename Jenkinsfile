@@ -10,6 +10,7 @@ def transformIntoStep(inputString) {
     // when this method is called, not when we pass it to parallel.
     // To do this, you need to wrap the code below in { }, and either return
     // that explicitly, or use { -> } syntax.
+    def 
     return {
         node {
             echo inputString
@@ -74,12 +75,12 @@ pipeline {
             steps {
                 script{
                     stepsForParallel = valuesYaml.test.collectEntries { 
-                            ["${it.name}" : transformIntoStep(it)]
+                            ["${it}" : transformIntoStep(it)]
                         }
                         println stepsForParallel
                         println stepsForParallel.getClass()
                         // stage(stageName) {
-                            parallel stepsForParallel
+                        //     parallel stepsForParallel
                         // }
                       
                 //     valuesYaml.test.each{
