@@ -74,17 +74,25 @@ pipeline {
         stage('test') {
             steps {
                 script{
-                    stepsForParallel = valuesYaml.test.collectEntries { 
-                            ["${it.name}" : transformIntoStep(it)]
+                    // stepsForParallel = valuesYaml.test.collectEntries { 
+                    //         ["${it.name}" : transformIntoStep(it)]
+                    //     }
+                    //     println stepsForParallel
+                    //     println stepsForParallel.getClass()
+                    //     // stage(stageName) {
+                    //         parallel stepsForParallel
+                    //     // }
+                        def branches = [:]
+                        i = 0
+                        valuesYaml.test.each{
+
+                        branches["branch${i}"] = {
+                            dir (it.testFolder){
+                                sh "${it.testCommand}"
+                            }
+
                         }
-                        println stepsForParallel
-                        println stepsForParallel.getClass()
-                        // stage(stageName) {
-                            parallel stepsForParallel
-                        // }
-                      
-                //     valuesYaml.test.each{
-                        
+                        i++
                 //         def taskName = transformIntoStep(it.name)
                 //         def task = "${it.testCommand}"
                 //         // println it.name
@@ -100,7 +108,8 @@ pipeline {
                 //                 // }
                             
 
-                //         }                                               
+                        }     
+                        parallel branches                                          
                     }
                 }                
             }
