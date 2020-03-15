@@ -67,6 +67,7 @@ pipeline {
                     }
             }
         }
+
         stage('build') {
             steps {
                 script{
@@ -92,7 +93,7 @@ pipeline {
                         i = 0
                         valuesYaml.test.each{
 
-                        branches["branch${i}"] = {
+                        branches["\u001B[31mbranch${i}\u001B[0m"] = {
                             dir (it.testFolder){
                                 sh "${it.testCommand}"
                             }
