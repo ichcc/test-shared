@@ -91,7 +91,6 @@ pipeline {
                 script{
                          def branches = [:]
                         i = 0
-                        println("HELLO",Ansi.RED)
                         valuesYaml.test.each{
                         branches["test-branch ${i}"] = {
                             dir (it.testFolder){
